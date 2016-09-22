@@ -1751,9 +1751,8 @@ gtk_play_constructor (GType type, guint n_construct_params,
   g_signal_connect (self->player, "volume-changed",
       G_CALLBACK (player_volume_changed_cb), self);
 
-  /* enable visualization (by default playbin uses goom) */
-  /* if visualization is enabled then use the first element */
-  gst_player_set_visualization_enabled (self->player, TRUE);
+  /* Disable visualization by default */
+  gst_player_set_visualization_enabled (self->player, FALSE);
 
   g_signal_connect (G_OBJECT (self), "show", G_CALLBACK (show_cb), NULL);
 
